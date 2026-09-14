@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://surface26.com/sitemap.xml

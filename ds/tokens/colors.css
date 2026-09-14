@@ -1,0 +1,33 @@
+/* Surface 26 — Color tokens.
+   Five colors only. No accent. Silver for hairlines — never black.
+   Two surfaces: Paper bg + Ink text, or Ink bg + Paper text. */
+:root {
+  /* Base palette */
+  --ink: #1B2A41;      /* Primary. Dark bg, headlines, logo on light */
+  --slate: #344054;    /* Secondary dark. Body on light, hover states */
+  --grey: #6B7280;     /* Mid-tone. Secondary text, the "26", dividers */
+  --silver: #D1D5DB;   /* Borders, rules, disabled, subtle fills */
+  --paper: #FFFFFF;    /* Light background */
+
+  /* Semantic — surfaces */
+  --surface: var(--paper);
+  --surface-inverse: var(--ink);
+  --surface-subtle: #E9EDF1;   /* faint fill on Paper, between paper & silver */
+
+  /* Semantic — text */
+  --text-strong: var(--ink);       /* headlines / high contrast on Paper */
+  --text-body: var(--slate);       /* body on Paper */
+  --text-muted: var(--grey);       /* secondary / eyebrow */
+  --text-on-inverse: var(--paper); /* headlines on Ink */
+  --text-body-inverse: var(--silver); /* body on Ink */
+  --text-muted-inverse: var(--grey);
+
+  /* Semantic — lines / borders */
+  --hairline: var(--silver);
+  --border: var(--silver);
+  --border-inverse: var(--slate);
+
+  /* States */
+  --disabled: var(--silver);
+  --hover-dark: var(--slate);
+}

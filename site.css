@@ -1,0 +1,93 @@
+/* Surface 26 — production additions on top of the design system.
+   Image frames (replacing the editor-only <image-slot>) and responsive rules. */
+
+.s26-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-subtle);
+  display: block;
+}
+.s26-img > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+img { max-width: 100%; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+button.s26-submit {
+  appearance: none;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  line-height: 1;
+  border-radius: 0;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+button.s26-submit:hover { background: var(--slate); border-color: var(--slate); }
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* FAQ open/close indicator */
+.s26-faq-q { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.s26-faq-q::-webkit-details-marker { display: none; }
+.s26-faq-q::after {
+  content: "+";
+  flex: none;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--grey);
+  transition: color 0.18s ease;
+}
+details[open] > .s26-faq-q::after { content: "−"; }
+.s26-faq-q:hover::after { color: var(--ink); }
+
+/* ---------- Responsive ----------
+   The exports use fixed two-column grids and 48px gutters. Collapse them
+   on narrow screens so nothing overflows or gets crushed. */
+@media (max-width: 900px) {
+  section { padding-left: 24px !important; padding-right: 24px !important; }
+  header > div, footer > div { padding-left: 24px !important; padding-right: 24px !important; }
+
+  /* Any two-column grid becomes one column */
+  [style*="grid-template-columns:minmax(0,1fr) minmax(0,1fr)"],
+  [style*="grid-template-columns:minmax(0,1fr) minmax(0,1.4fr)"],
+  [style*="grid-template-columns:minmax(0,1fr) minmax(0,420px)"],
+  [style*="grid-template-columns:minmax(0,420px) minmax(0,1fr)"],
+  [style*="grid-template-columns:minmax(0,1fr) minmax(0,380px)"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    direction: ltr !important;
+  }
+  /* Label/definition rows stack */
+  [style*="grid-template-columns:minmax(200px,280px) minmax(0,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  /* Why Us intro paragraph loses its desktop top offset */
+  [style*="margin:56px 0 0"] { margin-top: 0 !important; }
+
+  /* Gallery mosaic -> simple two-up */
+  .s26-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: 160px !important;
+  }
+  .s26-gallery > * { grid-column: auto !important; grid-row: auto !important; }
+}
+
+@media (max-width: 600px) {
+  section { padding-left: 20px !important; padding-right: 20px !important; }
+  header > div, footer > div { padding-left: 20px !important; padding-right: 20px !important; }
+  .s26-gallery { grid-template-columns: 1fr !important; grid-auto-rows: 220px !important; }
+}
