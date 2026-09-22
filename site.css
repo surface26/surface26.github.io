@@ -137,7 +137,7 @@ details[open] > .s26-faq-q::after { content: "−"; }
 }
 .s26-menu-phone { font-size: 16px; letter-spacing: 0.08em; color: var(--silver); text-decoration: none; }
 
-@media (max-width: 1100px) {
+@media (max-width: 1240px) {
   .s26-nav, .s26-header-cta { display: none !important; }
   .s26-burger { display: flex; }
   .s26-menu-toggle { display: block; position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
@@ -149,7 +149,7 @@ details[open] > .s26-faq-q::after { content: "−"; }
 /* ---------- Why Us process steps ---------- */
 @media (max-width: 900px) {
   .s26-steps { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 0 32px !important; }
-  .s26-cta { padding-top: 64px !important; padding-bottom: 64px !important; }
+  .s26-cta { padding-top: 48px !important; padding-bottom: 48px !important; }
 }
 @media (max-width: 600px) {
   .s26-steps { grid-template-columns: 1fr !important; }
@@ -164,4 +164,12 @@ details[open] > .s26-faq-q::after { content: "−"; }
 }
 @media (max-width: 600px) {
   .s26-hero-content { padding: 48px 20px 56px !important; }
+}
+
+/* ---------- Sticky header ---------- */
+header { position: sticky; top: 0; z-index: 100; }
+.s26-social:hover { color: var(--paper) !important; }
+@media (max-width: 600px) {
+  header > div > a > span > svg { width: 32px; height: 32px; }
+  header > div > a > span > span { font-size: 18px !important; }
 }
