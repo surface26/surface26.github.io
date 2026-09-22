@@ -1,0 +1,167 @@
+/* Surface 26 — production additions on top of the design system.
+   Image frames (replacing the editor-only <image-slot>) and responsive rules. */
+
+.s26-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-subtle);
+  display: block;
+}
+.s26-img > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+img { max-width: 100%; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+button.s26-submit {
+  appearance: none;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 14px 30px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  line-height: 1;
+  border-radius: 0;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+button.s26-submit:hover { background: var(--slate); border-color: var(--slate); }
+
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* FAQ open/close indicator */
+.s26-faq-q { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.s26-faq-q::-webkit-details-marker { display: none; }
+.s26-faq-q::after {
+  content: "+";
+  flex: none;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--grey);
+  transition: color 0.18s ease;
+}
+details[open] > .s26-faq-q::after { content: "−"; }
+.s26-faq-q:hover::after { color: var(--ink); }
+
+/* ---------- Responsive ----------
+   The exports use fixed two-column grids and 48px gutters. Collapse them
+   on narrow screens so nothing overflows or gets crushed. */
+@media (max-width: 900px) {
+  section { padding-left: 24px !important; padding-right: 24px !important; }
+  header > div, footer > div { padding-left: 24px !important; padding-right: 24px !important; }
+
+  /* Any two-column grid becomes one column */
+  [style*="grid-template-columns:minmax(0,1fr) minmax(0,1fr)"],
+  [style*="grid-template-columns:minmax(0,1fr) minmax(0,1.4fr)"],
+  [style*="grid-template-columns:minmax(0,1fr) minmax(0,420px)"],
+  [style*="grid-template-columns:minmax(0,420px) minmax(0,1fr)"],
+  [style*="grid-template-columns:minmax(0,1fr) minmax(0,380px)"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    direction: ltr !important;
+  }
+  /* Label/definition rows stack */
+  [style*="grid-template-columns:minmax(200px,280px) minmax(0,1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+  /* Why Us intro paragraph loses its desktop top offset */
+  [style*="margin:56px 0 0"] { margin-top: 0 !important; }
+
+  /* Gallery mosaic -> simple two-up */
+  .s26-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: 160px !important;
+  }
+  .s26-gallery > * { grid-column: auto !important; grid-row: auto !important; }
+}
+
+@media (max-width: 600px) {
+  section { padding-left: 20px !important; padding-right: 20px !important; }
+  header > div, footer > div { padding-left: 20px !important; padding-right: 20px !important; }
+  .s26-gallery { grid-template-columns: 1fr !important; grid-auto-rows: 220px !important; }
+}
+
+/* ---------- Mobile menu (CSS only, no JavaScript) ----------
+   A hidden checkbox drives the full-screen menu. The burger and the
+   close button are <label>s for that checkbox. */
+.s26-menu-toggle, .s26-burger, .s26-menu { display: none; }
+
+.s26-burger {
+  margin-left: auto;
+  width: 44px; height: 44px;
+  flex-direction: column; justify-content: center; align-items: flex-end;
+  gap: 7px;
+  cursor: pointer;
+}
+.s26-burger span { display: block; width: 26px; height: 1.5px; background: currentColor; }
+
+.s26-menu {
+  position: fixed; inset: 0; z-index: 1000;
+  background: var(--ink);
+  flex-direction: column;
+  padding: 20px 24px 32px;
+  overflow-y: auto;
+  font-family: 'Jost', sans-serif;
+}
+.s26-menu-top { display: flex; align-items: center; justify-content: space-between; min-height: 44px; }
+.s26-menu-close { position: relative; width: 44px; height: 44px; cursor: pointer; }
+.s26-menu-close::before, .s26-menu-close::after {
+  content: ""; position: absolute; top: 50%; left: 50%;
+  width: 26px; height: 1.5px; background: var(--paper);
+}
+.s26-menu-close::before { transform: translate(-50%, -50%) rotate(45deg); }
+.s26-menu-close::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+.s26-menu-links { display: flex; flex-direction: column; margin-top: 40px; border-top: 1px solid var(--slate); }
+.s26-menu-links a {
+  font-weight: 300; font-size: 26px; letter-spacing: 0.06em; line-height: 1.2;
+  color: var(--paper); text-decoration: none;
+  padding: 16px 0; border-bottom: 1px solid var(--slate);
+}
+.s26-menu-links a[aria-current="page"] { color: var(--silver); text-decoration: underline; text-underline-offset: 8px; text-decoration-thickness: 1px; }
+.s26-menu-foot { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; margin-top: 40px; }
+.s26-menu-cta {
+  font-weight: 400; font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; line-height: 1;
+  padding: 14px 30px; border: 1px solid var(--paper); background: var(--paper); color: var(--ink); text-decoration: none;
+}
+.s26-menu-phone { font-size: 16px; letter-spacing: 0.08em; color: var(--silver); text-decoration: none; }
+
+@media (max-width: 1100px) {
+  .s26-nav, .s26-header-cta { display: none !important; }
+  .s26-burger { display: flex; }
+  .s26-menu-toggle { display: block; position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+  .s26-menu-toggle:focus-visible + .s26-burger { outline: 2px solid currentColor; outline-offset: 2px; }
+  .s26-menu-toggle:checked ~ .s26-menu { display: flex; }
+  html:has(.s26-menu-toggle:checked) { overflow: hidden; }
+}
+
+/* ---------- Why Us process steps ---------- */
+@media (max-width: 900px) {
+  .s26-steps { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 0 32px !important; }
+  .s26-cta { padding-top: 64px !important; padding-bottom: 64px !important; }
+}
+@media (max-width: 600px) {
+  .s26-steps { grid-template-columns: 1fr !important; }
+  .s26-headsup { padding: 24px !important; }
+}
+
+/* ---------- Home hero + header on small screens ---------- */
+@media (max-width: 900px) {
+  section.s26-hero { padding-left: 0 !important; padding-right: 0 !important; }
+  .s26-hero-content { padding: 64px 24px 64px !important; }
+  header > div { gap: 16px !important; }
+}
+@media (max-width: 600px) {
+  .s26-hero-content { padding: 48px 20px 56px !important; }
+}
