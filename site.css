@@ -188,7 +188,7 @@ body > div > footer { margin-top: auto; }
   align-items: center; justify-content: center;
   padding: 64px 96px;
 }
-.s26-lb:target { display: flex; }
+.s26-lb:target { display: flex !important; }
 html:has(.s26-lb:target) { overflow: hidden; }
 .s26-lb-bg { position: absolute; inset: 0; cursor: zoom-out; }
 .s26-lb img {
