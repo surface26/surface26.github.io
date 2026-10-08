@@ -178,29 +178,31 @@ header { position: sticky; top: 0; z-index: 100; }
 body > div { min-height: 100vh; display: flex; flex-direction: column; }
 body > div > footer { margin-top: auto; }
 
-/* ---------- Gallery lightbox (CSS only, uses #links) ---------- */
+/* ---------- Gallery lightbox (CSS only, uses #links) ----------
+   Photo shows at about 70% of the screen, centered, with the page
+   dimmed behind it. Click outside the photo or the X to close. */
 .s26-tile { cursor: zoom-in; scroll-margin-top: 120px; }
 .s26-tile img { transition: opacity 0.18s ease; }
 .s26-tile:hover img { opacity: 0.88; }
 .s26-lb {
   display: none; position: fixed; inset: 0; z-index: 2000;
-  background: var(--ink);
+  background: rgba(27, 42, 65, 0.72);
   align-items: center; justify-content: center;
-  padding: 64px 96px;
 }
 .s26-lb:target { display: flex !important; }
 html:has(.s26-lb:target) { overflow: hidden; }
 .s26-lb-bg { position: absolute; inset: 0; cursor: zoom-out; }
 .s26-lb img {
   position: relative; display: block;
-  max-width: 100%; max-height: 100%; width: auto; height: auto;
+  max-width: 70vw; max-height: 70vh; width: auto; height: auto;
   object-fit: contain; pointer-events: none;
+  border: 1px solid var(--paper); background: var(--paper);
 }
 .s26-lb-prev, .s26-lb-next, .s26-lb-close {
   position: absolute; width: 56px; height: 56px; display: block;
 }
-.s26-lb-prev { left: 24px; top: 50%; transform: translateY(-50%); }
-.s26-lb-next { right: 24px; top: 50%; transform: translateY(-50%); }
+.s26-lb-prev { left: max(16px, calc(15vw - 80px)); top: 50%; transform: translateY(-50%); }
+.s26-lb-next { right: max(16px, calc(15vw - 80px)); top: 50%; transform: translateY(-50%); }
 .s26-lb-prev::before, .s26-lb-next::before {
   content: ""; position: absolute; top: 50%; left: 50%;
   width: 18px; height: 18px;
@@ -217,11 +219,11 @@ html:has(.s26-lb:target) { overflow: hidden; }
 .s26-lb-close::after  { transform: translate(-50%, -50%) rotate(-45deg); }
 .s26-lb-prev:hover::before, .s26-lb-next:hover::before { border-color: var(--silver); }
 .s26-lb-count {
-  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-  font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.18em; color: var(--silver);
+  position: absolute; bottom: calc(15vh - 36px); left: 50%; transform: translateX(-50%);
+  font-family: 'Jost', sans-serif; font-size: 12px; letter-spacing: 0.18em; color: var(--paper);
 }
 @media (max-width: 600px) {
-  .s26-lb { padding: 72px 16px 96px; }
+  .s26-lb img { max-width: 90vw; max-height: 70vh; }
   .s26-lb-prev, .s26-lb-next { top: auto; bottom: 8px; transform: none; }
   .s26-lb-prev { left: 16px; }
   .s26-lb-next { right: 16px; }
