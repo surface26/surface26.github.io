@@ -229,3 +229,18 @@ html:has(.s26-lb:target) { overflow: hidden; }
   .s26-lb-next { right: 16px; }
   .s26-lb-count { bottom: 28px; }
 }
+
+
+/* ---------- SEO update (Oct 2026) ---------- */
+/* FAQ questions are H2s inside the summary; they keep the summary's look */
+.s26-faq-q > h2 { font: inherit; letter-spacing: inherit; color: inherit; margin: 0; }
+
+/* Body-copy links */
+.s26-prose a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.s26-prose a:hover { color: var(--slate); }
+
+/* Map */
+.s26-map iframe { display: block; width: 100%; height: 360px; border: 1px solid var(--silver); }
+@media (max-width: 600px) {
+  .s26-map iframe { height: 280px; }
+}

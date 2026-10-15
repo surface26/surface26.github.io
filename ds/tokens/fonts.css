@@ -1,2 +1,15 @@
-/* Surface 26 — Jost (Google Fonts), weights 300 & 400 only */
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400&display=swap');
+/* Surface 26 — Jost, self-hosted. Weights 300 & 400 only. */
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/jost-latin-300-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/jost-latin-400-normal.woff2') format('woff2');
+}
