@@ -1,0 +1,23 @@
+/* Application pages: photography-led layout, scoped to these pages. */
+.s26-application{color:var(--ink)}
+.s26-app-hero{max-width:1392px;margin:0 auto;padding:72px 48px 64px;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:64px;align-items:center}
+.s26-app-intro h1{font-weight:300;font-size:clamp(36px,3.8vw,56px);line-height:1.12;letter-spacing:.025em;margin:0 0 28px}
+.s26-app-intro p{font-size:20px;line-height:1.65;color:var(--slate);max-width:490px;margin:0}
+.s26-app-photo{margin:0;min-width:0}
+.s26-app-photo img{display:block;width:100%;height:auto;border:1px solid var(--silver)}
+.s26-app-photo figcaption{font-size:10px;letter-spacing:.16em;color:var(--grey);margin-top:10px;text-align:right}
+.s26-app-body{max-width:1392px;margin:0 auto;padding:0 48px 88px}
+.s26-app-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:80px;border-top:1px solid var(--silver);padding-top:48px}
+.s26-app-features{display:flex;flex-direction:column;gap:40px}
+.s26-app-feature{padding:0!important}
+.s26-app-feature h2{font-weight:300;font-size:30px;line-height:1.25;letter-spacing:.025em;margin:0 0 20px}
+.s26-app-feature p,.s26-app-faq p{font-size:17px;line-height:1.7;color:var(--slate);margin:0}
+.s26-app-faq details{border-top:1px solid var(--silver)}
+.s26-app-faq details:first-child{border-top:0}
+.s26-app-faq details:last-child{border-bottom:1px solid var(--silver)}
+.s26-app-faq summary{list-style:none;padding:24px 0;cursor:pointer;font-size:18px;line-height:1.4}
+.s26-app-faq details:first-child summary{padding-top:0}
+.s26-app-faq p{padding-bottom:28px}
+.s26-app-faq summary h2{font:inherit;margin:0}
+@media(max-width:1100px){.s26-app-hero{gap:36px}.s26-app-columns{gap:40px}.s26-app-intro p{font-size:18px}}
+@media(max-width:760px){.s26-app-hero{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px;gap:32px}.s26-app-intro h1{font-size:36px;max-width:550px}.s26-app-intro p{max-width:none}.s26-app-columns{grid-template-columns:1fr;gap:40px;padding-top:32px}.s26-app-body{padding-bottom:56px}.s26-app-feature h2{font-size:28px}.s26-app-faq details:first-child{border-top:1px solid var(--silver)}.s26-app-faq details:first-child summary{padding-top:24px}}
