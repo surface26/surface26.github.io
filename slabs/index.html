@@ -15,14 +15,6 @@
 <link rel="stylesheet" href="/site.css?v=6">
 <style>body{margin:0}a{color:var(--ink)}a:hover{color:var(--slate)}
 
-.s26-filters{display:flex;flex-wrap:wrap;gap:16px 40px;padding:24px 0;border-top:1px solid var(--silver);border-bottom:1px solid var(--silver);margin-bottom:40px}
-.s26-filter{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.s26-filter-label{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--grey);margin-right:8px}
-.s26-chip-in{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
-.s26-chip{font-size:13px;letter-spacing:0.12em;text-transform:uppercase;line-height:1;padding:11px 16px;border:1px solid var(--silver);color:var(--slate);cursor:pointer;transition:border-color .18s ease,background .18s ease,color .18s ease}
-.s26-chip:hover{border-color:var(--ink);color:var(--ink)}
-.s26-chip-in:checked + .s26-chip{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.s26-chip-in:focus-visible + .s26-chip{outline:2px solid var(--ink);outline-offset:3px}
 .s26-slab-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:48px 24px}
 .s26-slab{display:flex;flex-direction:column;gap:16px;scroll-margin-top:120px}
 .s26-slab-photo{aspect-ratio:1/2;border:1px solid var(--silver)}
@@ -34,14 +26,10 @@
 .s26-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .s26-tag-note{font-size:12px;line-height:1.4;color:var(--grey);align-self:center}
 .s26-tag{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;line-height:1;padding:7px 10px;border:1px solid var(--ink);color:var(--ink)}
-.s26-none{display:none;grid-column:1/-1;padding:48px 0;font-size:16px;color:var(--grey)}
 .s26-defs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 48px}
 @media (max-width:900px){.s26-slab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:600px){.s26-slab-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 16px}.s26-slab-name{font-size:18px}.s26-defs{grid-template-columns:1fr}.s26-filters{gap:16px}}
+@media (max-width:600px){.s26-slab-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 16px}.s26-slab-name{font-size:18px}.s26-defs{grid-template-columns:1fr}}
 
-.s26-slabs:has(#m-book:checked) .s26-slab:not(.is-book){display:none}
-.s26-slabs:has(#t-6mm:checked) .s26-slab:not(.t-6mm){display:none}
-.s26-slabs:has(#t-12mm:checked) .s26-slab:not(.t-12mm){display:none}
 </style>
 <!-- Unlisted page: not in the nav, not in sitemap.xml, noindex. Built by build.py. -->
 </head>
@@ -81,83 +69,92 @@
   <section style="background:var(--paper);padding:80px 48px 40px;"><div style="max-width:1200px;margin:0 auto;"><div style="display:flex;flex-direction:column;gap:24px;max-width:760px;">
     <span style="font-family:'Jost',sans-serif;font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--grey);">Large format porcelain</span>
     <h1 style="font-family:'Jost',sans-serif;font-weight:300;font-size:clamp(31px,4vw,49px);line-height:1.15;letter-spacing:0.05em;color:var(--ink);margin:0;">Porcelain slabs</h1>
-    <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:17px;line-height:1.6;color:var(--slate);margin:0;">These are the porcelain slabs we work with most. Tap a slab to see it full size. If you have something else in mind, ask us. We can likely get it.</p>
+    <p style="font-family:'Jost',sans-serif;font-weight:300;font-size:17px;line-height:1.6;color:var(--slate);margin:0;">These are the porcelain slabs we work with most. If you have something else in mind, ask us. We can likely get it.</p>
   </div></div></section>
 
-  <section style="background:var(--paper);padding:0 48px 96px;"><div style="max-width:1200px;margin:0 auto;" class="s26-slabs">
-    <div class="s26-filters"><div class="s26-filter" role="radiogroup" aria-label="Matching"><span class="s26-filter-label">Matching</span><input type="radio" name="m" id="m-all" class="s26-chip-in" checked><label for="m-all" class="s26-chip">All</label><input type="radio" name="m" id="m-book" class="s26-chip-in"><label for="m-book" class="s26-chip">Book match</label></div><div class="s26-filter" role="radiogroup" aria-label="Thickness"><span class="s26-filter-label">Thickness</span><input type="radio" name="t" id="t-all" class="s26-chip-in" checked><label for="t-all" class="s26-chip">All</label><input type="radio" name="t" id="t-6mm" class="s26-chip-in"><label for="t-6mm" class="s26-chip">6mm</label><input type="radio" name="t" id="t-12mm" class="s26-chip-in"><label for="t-12mm" class="s26-chip">12mm</label></div></div>
+  <section style="background:var(--paper);padding:0 48px 96px;"><div style="max-width:1200px;margin:0 auto;border-top:1px solid var(--silver);padding-top:48px;" class="s26-slabs">
     <div class="s26-slab-grid">
-  <article class="s26-slab t-6mm t-12mm is-book" id="calacatta-aries">
+  <article class="s26-slab" id="anthracite">
+    <a id="t-anthracite" href="#v-anthracite" class="s26-img s26-slab-photo s26-tile"><img loading="lazy" decoding="async" width="640" height="1280" src="/images/slabs/anthracite.webp" alt="Full slab of Anthracite porcelain"></a>
+    <div class="s26-slab-body">
+      <h2 class="s26-slab-name">Anthracite</h2>
+      <p class="s26-slab-meta">Glossy</p>
+      <p class="s26-slab-meta">6mm</p>
+      
+    </div>
+  </article>
+  <article class="s26-slab" id="calacatta">
+    <a id="t-calacatta" href="#v-calacatta" class="s26-img s26-slab-photo s26-tile"><img loading="lazy" decoding="async" width="640" height="1280" src="/images/slabs/calacatta.webp" alt="Full slab of Calacatta porcelain"></a>
+    <div class="s26-slab-body">
+      <h2 class="s26-slab-name">Calacatta</h2>
+      <p class="s26-slab-meta">Glossy &middot; Matte</p>
+      <p class="s26-slab-meta">6mm &middot; 12mm</p>
+      <div class="s26-tags"><span class="s26-tag">Book match</span><span class="s26-tag-note">Book match in 12mm</span></div>
+    </div>
+  </article>
+  <article class="s26-slab" id="calacatta-aries">
     <a id="t-calacatta-aries" href="#v-calacatta-aries" class="s26-img s26-slab-photo s26-tile"><img loading="lazy" decoding="async" width="640" height="1280" src="/images/slabs/calacatta-aries.webp" alt="Full slab of Calacatta Aries porcelain"></a>
     <div class="s26-slab-body">
       <h2 class="s26-slab-name">Calacatta Aries</h2>
       <p class="s26-slab-meta">Glossy &middot; Matte</p>
       <p class="s26-slab-meta">6mm &middot; 12mm</p>
-      <p class="s26-slab-meta">Up to 64&quot; x 127&quot;</p>
       <div class="s26-tags"><span class="s26-tag">Book match</span></div>
     </div>
   </article>
-  <article class="s26-slab t-6mm t-12mm is-book" id="calacatta-topaz">
+  <article class="s26-slab" id="calacatta-topaz">
     <a id="t-calacatta-topaz" href="#v-calacatta-topaz" class="s26-img s26-slab-photo s26-tile"><img loading="lazy" decoding="async" width="640" height="1280" src="/images/slabs/calacatta-topaz.webp" alt="Full slab of Calacatta Topaz porcelain"></a>
     <div class="s26-slab-body">
       <h2 class="s26-slab-name">Calacatta Topaz</h2>
       <p class="s26-slab-meta">Glossy &middot; Matte</p>
       <p class="s26-slab-meta">6mm &middot; 12mm</p>
-      <p class="s26-slab-meta">Up to 64&quot; x 127&quot;</p>
       <div class="s26-tags"><span class="s26-tag">Book match</span><span class="s26-tag-note">Book match in 12mm Glossy</span></div>
     </div>
   </article>
-  <article class="s26-slab t-6mm t-12mm is-book" id="diamond-mine">
+  <article class="s26-slab" id="diamond-mine">
     <a id="t-diamond-mine" href="#v-diamond-mine" class="s26-img s26-slab-photo s26-tile"><img loading="lazy" decoding="async" width="640" height="1280" src="/images/slabs/diamond-mine.webp" alt="Full slab of Diamond Mine porcelain"></a>
     <div class="s26-slab-body">
       <h2 class="s26-slab-name">Diamond Mine</h2>
       <p class="s26-slab-meta">Glossy &middot; Matte</p>
       <p class="s26-slab-meta">6mm &middot; 12mm</p>
-      <p class="s26-slab-meta">Up to 64&quot; x 127&quot;</p>
       <div class="s26-tags"><span class="s26-tag">Book match</span></div>
     </div>
   </article>
-  <article class="s26-slab t-6mm t-12mm" id="onyx-galaxy">
+  <article class="s26-slab" id="onyx-galaxy">
     <a id="t-onyx-galaxy" href="#v-onyx-galaxy" class="s26-img s26-slab-photo s26-tile"><img loading="lazy" decoding="async" width="640" height="1280" src="/images/slabs/onyx-galaxy.webp" alt="Full slab of Onyx Galaxy porcelain"></a>
     <div class="s26-slab-body">
       <h2 class="s26-slab-name">Onyx Galaxy</h2>
       <p class="s26-slab-meta">Glossy &middot; Matte</p>
       <p class="s26-slab-meta">6mm &middot; 12mm</p>
-      <p class="s26-slab-meta">Up to 64&quot; x 127&quot;</p>
       
     </div>
   </article>
-  <article class="s26-slab t-6mm t-12mm is-book" id="opalite">
+  <article class="s26-slab" id="opalite">
     <a id="t-opalite" href="#v-opalite" class="s26-img s26-slab-photo s26-tile"><img loading="lazy" decoding="async" width="640" height="1280" src="/images/slabs/opalite.webp" alt="Full slab of Opalite porcelain"></a>
     <div class="s26-slab-body">
       <h2 class="s26-slab-name">Opalite</h2>
       <p class="s26-slab-meta">Glossy &middot; Matte &middot; Polished</p>
       <p class="s26-slab-meta">6mm &middot; 12mm</p>
-      <p class="s26-slab-meta">Up to 64&quot; x 127&quot;</p>
       <div class="s26-tags"><span class="s26-tag">Book match</span></div>
     </div>
   </article>
-  <article class="s26-slab t-6mm t-12mm is-book" id="statuario">
+  <article class="s26-slab" id="statuario">
     <a id="t-statuario" href="#v-statuario" class="s26-img s26-slab-photo s26-tile"><img loading="lazy" decoding="async" width="640" height="1280" src="/images/slabs/statuario.webp" alt="Full slab of Statuario porcelain"></a>
     <div class="s26-slab-body">
       <h2 class="s26-slab-name">Statuario</h2>
       <p class="s26-slab-meta">Glossy &middot; Matte</p>
       <p class="s26-slab-meta">6mm &middot; 12mm</p>
-      <p class="s26-slab-meta">Up to 64&quot; x 127&quot;</p>
       <div class="s26-tags"><span class="s26-tag">Book match</span></div>
     </div>
   </article>
-  <article class="s26-slab t-6mm t-12mm is-book" id="zebra-calacatta">
+  <article class="s26-slab" id="zebra-calacatta">
     <a id="t-zebra-calacatta" href="#v-zebra-calacatta" class="s26-img s26-slab-photo s26-tile"><img loading="lazy" decoding="async" width="640" height="1280" src="/images/slabs/zebra-calacatta.webp" alt="Full slab of Zebra Calacatta porcelain"></a>
     <div class="s26-slab-body">
       <h2 class="s26-slab-name">Zebra Calacatta</h2>
       <p class="s26-slab-meta">Glossy</p>
       <p class="s26-slab-meta">6mm &middot; 12mm</p>
-      <p class="s26-slab-meta">Up to 64&quot; x 127&quot;</p>
       <div class="s26-tags"><span class="s26-tag">Book match</span></div>
     </div>
   </article>
-      <p class="s26-none">Nothing matches those filters yet. Ask us and we will find options for you.</p>
     </div>
   </div></section>
 
@@ -178,13 +175,15 @@
   </div></section>
 
 <div class="s26-lightboxes">
-<div class="s26-lb" style="display:none;" id="v-calacatta-aries" role="dialog" aria-label="Calacatta Aries"><a class="s26-lb-bg" href="#t-calacatta-aries" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/calacatta-aries.webp" alt="Full slab of Calacatta Aries porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-zebra-calacatta" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-calacatta-topaz" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-calacatta-aries" aria-label="Close photo"></a><span class="s26-lb-count">Calacatta Aries</span></div>
+<div class="s26-lb" style="display:none;" id="v-anthracite" role="dialog" aria-label="Anthracite"><a class="s26-lb-bg" href="#t-anthracite" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/anthracite.webp" alt="Full slab of Anthracite porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-zebra-calacatta" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-calacatta" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-anthracite" aria-label="Close photo"></a><span class="s26-lb-count">Anthracite</span></div>
+<div class="s26-lb" style="display:none;" id="v-calacatta" role="dialog" aria-label="Calacatta"><a class="s26-lb-bg" href="#t-calacatta" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/calacatta.webp" alt="Full slab of Calacatta porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-anthracite" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-calacatta-aries" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-calacatta" aria-label="Close photo"></a><span class="s26-lb-count">Calacatta</span></div>
+<div class="s26-lb" style="display:none;" id="v-calacatta-aries" role="dialog" aria-label="Calacatta Aries"><a class="s26-lb-bg" href="#t-calacatta-aries" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/calacatta-aries.webp" alt="Full slab of Calacatta Aries porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-calacatta" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-calacatta-topaz" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-calacatta-aries" aria-label="Close photo"></a><span class="s26-lb-count">Calacatta Aries</span></div>
 <div class="s26-lb" style="display:none;" id="v-calacatta-topaz" role="dialog" aria-label="Calacatta Topaz"><a class="s26-lb-bg" href="#t-calacatta-topaz" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/calacatta-topaz.webp" alt="Full slab of Calacatta Topaz porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-calacatta-aries" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-diamond-mine" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-calacatta-topaz" aria-label="Close photo"></a><span class="s26-lb-count">Calacatta Topaz</span></div>
 <div class="s26-lb" style="display:none;" id="v-diamond-mine" role="dialog" aria-label="Diamond Mine"><a class="s26-lb-bg" href="#t-diamond-mine" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/diamond-mine.webp" alt="Full slab of Diamond Mine porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-calacatta-topaz" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-onyx-galaxy" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-diamond-mine" aria-label="Close photo"></a><span class="s26-lb-count">Diamond Mine</span></div>
 <div class="s26-lb" style="display:none;" id="v-onyx-galaxy" role="dialog" aria-label="Onyx Galaxy"><a class="s26-lb-bg" href="#t-onyx-galaxy" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/onyx-galaxy.webp" alt="Full slab of Onyx Galaxy porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-diamond-mine" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-opalite" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-onyx-galaxy" aria-label="Close photo"></a><span class="s26-lb-count">Onyx Galaxy</span></div>
 <div class="s26-lb" style="display:none;" id="v-opalite" role="dialog" aria-label="Opalite"><a class="s26-lb-bg" href="#t-opalite" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/opalite.webp" alt="Full slab of Opalite porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-onyx-galaxy" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-statuario" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-opalite" aria-label="Close photo"></a><span class="s26-lb-count">Opalite</span></div>
 <div class="s26-lb" style="display:none;" id="v-statuario" role="dialog" aria-label="Statuario"><a class="s26-lb-bg" href="#t-statuario" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/statuario.webp" alt="Full slab of Statuario porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-opalite" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-zebra-calacatta" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-statuario" aria-label="Close photo"></a><span class="s26-lb-count">Statuario</span></div>
-<div class="s26-lb" style="display:none;" id="v-zebra-calacatta" role="dialog" aria-label="Zebra Calacatta"><a class="s26-lb-bg" href="#t-zebra-calacatta" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/zebra-calacatta.webp" alt="Full slab of Zebra Calacatta porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-statuario" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-calacatta-aries" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-zebra-calacatta" aria-label="Close photo"></a><span class="s26-lb-count">Zebra Calacatta</span></div>
+<div class="s26-lb" style="display:none;" id="v-zebra-calacatta" role="dialog" aria-label="Zebra Calacatta"><a class="s26-lb-bg" href="#t-zebra-calacatta" aria-label="Close photo"></a><img width="640" height="1280" src="/images/slabs/zebra-calacatta.webp" alt="Full slab of Zebra Calacatta porcelain" loading="lazy"><a class="s26-lb-prev" href="#v-statuario" aria-label="Previous slab"></a><a class="s26-lb-next" href="#v-anthracite" aria-label="Next slab"></a><a class="s26-lb-close" href="#t-zebra-calacatta" aria-label="Close photo"></a><span class="s26-lb-count">Zebra Calacatta</span></div>
 </div>
 <footer style="background:var(--ink);width:100%;">
     <div style="max-width:1296px;margin:0 auto;padding:0 48px;"><div style="height:1px;width:100%;background:var(--slate);"></div></div>
